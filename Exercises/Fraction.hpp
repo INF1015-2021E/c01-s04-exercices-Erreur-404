@@ -43,6 +43,9 @@ public:
 	Fraction operator*(const Fraction& rhs) const;
 	friend Fraction operator*(int lhs, const Fraction& rhs);
 
+	Fraction operator/(const Fraction& rhs) const;		// define
+	friend Fraction operator/(int lhs, const Fraction& rhs);	// define
+
 private:
 	void simplify();
 

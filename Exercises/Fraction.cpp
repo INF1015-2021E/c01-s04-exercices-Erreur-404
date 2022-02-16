@@ -104,3 +104,12 @@ Fraction Fraction::operator*(const Fraction& rhs) const {
 Fraction operator*(int lhs, const Fraction& rhs) {
 	return { rhs.numer_ * lhs, rhs.denom_ };
 }
+
+Fraction Fraction::operator/(const Fraction& rhs) const {
+	return { numer_ * rhs.getDenom(), denom_ * rhs.getNumer() };
+}
+
+Fraction operator/(int lhs, const Fraction& rhs) {
+	Fraction leftHandSide = { lhs };
+	return leftHandSide * rhs;
+}

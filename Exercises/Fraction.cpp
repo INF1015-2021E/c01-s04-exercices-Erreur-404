@@ -51,6 +51,17 @@ Fraction Fraction::operator++(int) {
 	return old;
 }
 
+Fraction& Fraction::operator--() {
+	numer_ -= denom_;
+	return *this;
+}
+
+Fraction Fraction::operator--(int) {
+	Fraction temp = *this;
+	--(*this);
+	return temp;
+}
+
 Fraction Fraction::operator+(const Fraction& rhs) const {
 	return {numer_ * rhs.denom_ + rhs.numer_ * denom_, denom_ * rhs.denom_};
 }
@@ -84,4 +95,12 @@ Fraction operator+(int lhs, const Fraction& rhs) {
 
 ostream& operator<<(ostream& lhs, const Fraction& rhs) {
 	return lhs << rhs.numer_ << "/" << rhs.denom_;
+}
+
+Fraction Fraction::operator*(const Fraction& rhs) const {
+	return { numer_ * rhs.getNumer(), (denom_ * rhs.getDenom()) };
+}
+
+Fraction operator*(int lhs, const Fraction& rhs) {
+	return { rhs.numer_ * lhs, rhs.denom_ };
 }

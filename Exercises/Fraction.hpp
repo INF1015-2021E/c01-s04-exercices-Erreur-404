@@ -27,6 +27,8 @@ public:
 	Fraction operator-() const;
 	Fraction& operator++();
 	Fraction operator++(int);
+	Fraction& operator--();
+	Fraction operator--(int);
 
 	Fraction operator+(const Fraction& rhs) const;
 	Fraction operator+(int rhs) const;
@@ -36,6 +38,10 @@ public:
 
 	friend Fraction operator+(int lhs, const Fraction& rhs);
 	friend ostream& operator<<(ostream& lhs, const Fraction& rhs);
+
+	// Moi
+	Fraction operator*(const Fraction& rhs) const;
+	friend Fraction operator*(int lhs, const Fraction& rhs);
 
 private:
 	void simplify();
